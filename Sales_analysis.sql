@@ -32,7 +32,7 @@ FROM
 
 	 FROM 		DB.population AS pop
 
-	 INNER JOIN DB.Associates AS t01
+	 INNER JOIN 	DB.Associates AS t01
 	 ON 		pop.Client_ID=t01.Client_ID
 
 	 LEFT JOIN 	DB.Party_Relationship AS t02
@@ -67,12 +67,12 @@ SELECT
 FROM 		vt_Sales AS pop
 
 LEFT JOIN 	DB.client_name AS t01
-ON 			pop.Sales_ID=t01.Client_ID
+ON 		pop.Sales_ID=t01.Client_ID
 AND 		t01.Client_name_status = 50
 AND 		t01.Client_current_ind = 'Y'
 
 INNER JOIN 	DB.name_type AS t02
-ON 			t01.name_code=t02.name_code
+ON 		t01.name_code=t02.name_code
 AND 		t02.name_code IN (50,100)
 
 WHERE 		(t01.First_name IS NOT NULL AND t01.First_name <>' ')
@@ -124,7 +124,7 @@ SELECT
 FROM 		vt_name AS pop
 
 INNER JOIN 	DB.Client AS t01
-ON 			pop.Sales_ID = t01.Client_ID
+ON 		pop.Sales_ID = t01.Client_ID
 
 QUALIFY Row_Number() Over(PARTITION BY Client_ID, Sales_ID ORDER BY actual_birth_date DESC)=1
 ) WITH DATA
@@ -200,15 +200,15 @@ SELECT
 FROM 		vt_sales AS pop
 
 INNER JOIN 	vt_name AS t01
-ON 			pop.Client_ID =t01.Client_ID
+ON 		pop.Client_ID =t01.Client_ID
 AND 		pop.Sales_ID=t01.Sales_ID
 
 INNER JOIN 	vt_dob AS t02
-ON 			pop.Client_ID =t02.Client_ID
+ON 		pop.Client_ID =t02.Client_ID
 AND 		pop.Sales_ID=t02.Sales_ID
 
 LEFT JOIN 	vt_balance AS t03
-ON 			pop.Client_ID =t03.Client_ID
+ON 		pop.Client_ID =t03.Client_ID
 AND 		pop.Sales_ID=t03.Sales_ID
 
 ) WITH DATA
