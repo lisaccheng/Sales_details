@@ -165,7 +165,7 @@ LEFT JOIN
 
 		 FROM 		Db.Fin_trn fx
 
-		 INNER JOIN DB.Client_Account ac
+		 INNER JOIN 	DB.Client_Account ac
 		 ON 		ac.Acnt_Id = fx.Acnt_Id
 		 AND 		ac.Client_account_code = 141
 
