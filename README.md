@@ -2,7 +2,7 @@
 
 This is a sanitised version of an algorithm that sources the Sales person from Client data. It provides information of the Sales person. Developed in Teradata environment.
 
-The final table output show:
+The final table output shows:
 
 1. Client Details
 2. Sales Person ID
